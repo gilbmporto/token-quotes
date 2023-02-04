@@ -54,7 +54,7 @@ async function handleFormSubmit(event) {
 	let fromTokenAmount = $tokenAmountInput.value
 	let amount = fromTokenAmount * fromTokenUnit
 
-	const url = `https://api.1inch.exchange/v5.0/1/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount}`
+	const url = `https://api.1inch.exchange/v5.0/1/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount.toString()}`
 	console.log(url)
 
 	try {
