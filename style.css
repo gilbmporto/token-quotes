@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+select {
+  text-align: center;
+  margin-left: 10px;
+  width: 200px;
+  padding: 7px;
+  border-radius: 10px;
+  margin-top: 7px;
+}
+
+input {
+  margin-left: 10px;
+  width: 200px;
+  padding: 7px;
+  border-radius: 10px;
+  margin-top: 7px;
+}
+
+hr {
+  margin: 20px auto;
+  width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  text-align: center;
+  margin-top: 20px;
+  font-size: large;
+  max-width: 370px;
+  min-width: 240px;
+}
+
+.label-token-symbol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.div-from-token-symbol, .div-from-token-amount, .div-to-token-symbol, .div-submit-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.div-from-token-amount input {
+  text-align: center;
+}
+
+.dex-submit {
+  background-color: lightsalmon;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: larger;
+  text-align: center;
+}
+
+.dex-submit:hover {
+  background-color: darksalmon;
+  color: white;
+  font-size: larger;
+}
+
+.results {
+  width: 500px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.from-token-results, .to-token-results {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.from-token-results img {
+  width: 150px;
+  margin-top: 12px;
+}
+
+.to-token-results img {
+  width: 150px;
+  margin-top: 12px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.each-token-div {
+  margin: 20px auto;
+}
+
+.each-token-div img {
+  margin-top: 20px;
+  width: 150px;
+}
+
+@media screen and (max-width: 480px) {
+  .description {
+    max-width: 250px;
+  }
+
+  .results {
+    width: 500px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .to-token-results {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  
+}
