@@ -38,7 +38,7 @@ async function fetchAPICoinPaprikaAndDisplay() {
 	let res = await fetch(coinpaprikaApiURL)
 	let data = await res.json()
 	let filteredData = data
-		.filter((obj, index) => index < 20)
+		.filter((obj, index) => index < 100)
 		.map((obj) => obj.symbol)
 	return filteredData
 }
