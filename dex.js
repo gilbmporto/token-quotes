@@ -52,9 +52,10 @@ async function handleFormSubmit(event) {
 	let [toTokenAddress, toTokenDecimals] = toTokenData.split("-")
 	let fromTokenUnit = 10 ** fromTokenDecimals
 	let fromTokenAmount = $tokenAmountInput.value
-	let amount = fromTokenAmount * fromTokenUnit
+	let amount = BigInt(fromTokenAmount * fromTokenUnit)
+	console.log(amount)
 
-	const url = `https://api.1inch.exchange/v5.0/1/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount.toString()}`
+	const url = `https://api.1inch.exchange/v5.0/1/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount}`
 	console.log(url)
 
 	try {
