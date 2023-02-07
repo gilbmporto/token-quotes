@@ -14,6 +14,19 @@
       <p class="description">Welcome to Gil's DEX, where you'll be able to get the quote of the most relevant ERC-20 tokens!</p>
       <hr/>
       <form action="#" method="GET">
+        <div class="div-select-chain" id="div-select-chain">
+          <label for="select-chain">Select the Chain: </label>
+          <select name="select-chain" id="select-chain" class="select-chain">
+            <option value="1">Ethereum</option>
+            <option value="56">Binance (BNB)</option>
+            <option value="137">Polygon</option>
+            <option value="10">Optimism</option>
+            <option value="42161">Arbitrum</option>
+            <option value="43114">Avalanche</option>
+          </select>
+          <button class="dex-chain dex-submit">Select Chain</button>
+        </div>
+        <hr/>
         <div class="div-from-token-symbol">
           <label for="from-token-symbol">From Token: </label>
           <select name="from-token-symbol" id="from-token-symbol"></select>
@@ -29,7 +42,7 @@
         </div>
         <hr/>
         <div class="div-submit-btn">
-          <button type="submit" class="dex-submit" id="dex-submit">Get Quote</button>
+          <button type="submit" class="dex-submit" id="dex-submit" disabled>Get Quote</button>
         </div>
       </form>
     </div>

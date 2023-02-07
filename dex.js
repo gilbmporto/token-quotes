@@ -1,8 +1,11 @@
 // State Variables
-const oneInchTokensURL = "https://api.1inch.io/v5.0/1/tokens"
+let oneInchTokensURL = `https://api.1inch.io/v5.0/1/tokens`
 const coinpaprikaApiURL = "https://api.coinpaprika.com/v1/coins"
+let chosenChain
 
 // HTML Elements
+const $selectChainInput = document.getElementById("select-chain")
+const $selectChainBtn = document.querySelector(".dex-chain")
 const $fromTokenSymbolSelect = document.getElementById("from-token-symbol")
 const $tokenAmountInput = document.getElementById("from-token-amount")
 const $toTokenSymbolSelect = document.getElementById("to-token-symbol")
@@ -16,6 +19,7 @@ async function fetch1inchData(tickerList) {
 	$fromTokenSymbolSelect.innerHTML = `<option value="">Loading...</option>`
 	$toTokenSymbolSelect.innerHTML = `<option value="">Loading...</option>`
 
+	oneInchTokensURL = `https://api.1inch.io/v5.0/${chosenChain}/tokens`
 	let res = await fetch(oneInchTokensURL)
 	let data = await res.json()
 	let listOfTokens = Object.values(data.tokens)
@@ -46,6 +50,7 @@ async function fetchAPICoinPaprikaAndDisplay() {
 async function handleFormSubmit(event) {
 	event.preventDefault()
 
+	chosenChain = Number($selectChainInput.value)
 	let fromTokenData = $fromTokenSymbolSelect.value
 	let [fromTokenAddress, fromTokenDecimals] = fromTokenData.split("-")
 	let toTokenData = $toTokenSymbolSelect.value
@@ -55,7 +60,7 @@ async function handleFormSubmit(event) {
 	let amount = BigInt(fromTokenAmount * fromTokenUnit)
 	console.log(amount)
 
-	const url = `https://api.1inch.exchange/v5.0/1/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount}`
+	const url = `https://api.1inch.exchange/v5.0/${chosenChain}/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${amount}`
 	console.log(url)
 
 	try {
@@ -84,9 +89,13 @@ async function handleFormSubmit(event) {
 	}
 }
 
-$submitButton.addEventListener("click", handleFormSubmit)
-
-fetchAPICoinPaprikaAndDisplay()
-	.then(fetch1inchData)
-	.then(console.log)
-	.catch((e) => console.log(`${e.name}: ${e.message}`))
+$selectChainBtn.addEventListener("click", (e) => {
+	e.preventDefault()
+	chosenChain = Number($selectChainInput.value)
+	$submitButton.removeAttribute("disabled")
+	$submitButton.addEventListener("click", handleFormSubmit)
+	fetchAPICoinPaprikaAndDisplay()
+		.then(fetch1inchData)
+		.then(console.log)
+		.catch((e) => console.log(`${e.name}: ${e.message}`))
+})

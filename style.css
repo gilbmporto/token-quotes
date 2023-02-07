@@ -63,7 +63,7 @@ hr {
   margin-top: 30px;
 }
 
-.div-from-token-symbol, .div-from-token-amount, .div-to-token-symbol, .div-submit-btn {
+.div-select-chain, .div-from-token-symbol, .div-from-token-amount, .div-to-token-symbol, .div-submit-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +73,10 @@ hr {
 
 .div-from-token-amount input {
   text-align: center;
+}
+
+.select-chain {
+  margin-bottom: 20px;
 }
 
 .dex-submit {
