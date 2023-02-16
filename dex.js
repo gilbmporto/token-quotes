@@ -89,9 +89,16 @@ async function handleFormSubmit(event) {
 	}
 }
 
+function alertUser() {
+	alert("First, select the chain and click on 'Select Chain' in order to see the quotes!")
+}
+
+$submitButton.addEventListener("click", alertUser)
+
 $selectChainBtn.addEventListener("click", (e) => {
 	e.preventDefault()
 	chosenChain = Number($selectChainInput.value)
+	$submitButton.removeEventListener("click", alertUser)
 	$submitButton.removeAttribute("disabled")
 	$submitButton.addEventListener("click", handleFormSubmit)
 	fetchAPICoinPaprikaAndDisplay()
