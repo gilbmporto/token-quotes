@@ -99,7 +99,6 @@ $selectChainBtn.addEventListener("click", (e) => {
 	e.preventDefault()
 	chosenChain = Number($selectChainInput.value)
 	$submitButton.removeEventListener("click", alertUser)
-	$submitButton.removeAttribute("disabled")
 	$submitButton.addEventListener("click", handleFormSubmit)
 	fetchAPICoinPaprikaAndDisplay()
 		.then(fetch1inchData)
